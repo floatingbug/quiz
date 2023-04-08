@@ -13,14 +13,16 @@ let buttons = reactive({
 
 function setButtons(e){
 	//set all buttons to false.
-	for(let i = 0; i < buttons.length; i++){
-		buttons[i] = false;
+	for(let key of Object.keys(buttons)){
+		buttons[key] = false;
 	}
 
 	//set button to true.
 	switch(e.target.dataset.id){
 		case 'login': 
 			buttons.login = true;
+			break
+		case 'registration': buttons.registration = true;
 			break
 	}
 }
@@ -32,7 +34,7 @@ function setButtons(e){
 <nav v-on:click="setButtons">
 <div class="container_right">
 	<div data-id="login" v-bind:class="{buttons: buttons.login}">login</div>
-	<div data-id="registration">registration</div>
+	<div data-id="registration" v-bind:class="{buttons: buttons.registration}">registration</div>
 </div>
 </nav>
 </template>
