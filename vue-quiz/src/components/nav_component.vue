@@ -2,9 +2,9 @@
 import {ref, reactive, watch} from 'vue'
 const css_colors = reactive({
 	fontColor: 'Khaki',
-	activeColor: 'red',
+	activeColor: 'LawnGreen',
 	hoverColor: 'GoldenRod',
-	backgroundColor: 'DarkGoldenRod'
+	backgroundColor: 'DarkGoldenRod',
 });
 let buttons = reactive({
 	login: false,
@@ -53,8 +53,8 @@ nav {
 .container_right {
 	display: flex;
 	margin-left: auto;
+	margin-right: 10px;
 	justify-content: space-around;
-	min-width: 40vw;
 	align-items: center;
 }
 
@@ -64,6 +64,12 @@ nav {
 }
 
 .buttons {
-	color: green;
+	color: v-bind(css_colors.activeColor);
+}
+
+.container_right>div[data-id="login"] {
+	border-right: 1px solid LawnGreen;
+	margin-right: 10px;
+	padding-right: 10px;
 }
 </style>
