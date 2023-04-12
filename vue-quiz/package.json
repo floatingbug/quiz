@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "test": "jest",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "jest": "^29.5.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
