@@ -1,7 +1,18 @@
 <script setup>
+import {ref} from 'vue'
+import Login from '../components/renderless-components/Login.vue'
+const refLogin = ref();
+
+async function submitLogin(e){
+	e.preventDefault()
+	
+	const result = await refLogin.value.test("blob is large")
+	console.log(result)
+}
 </script>
 
 <template>
+	<Login ref="refLogin"></Login>
 	<div class="container">
 		<form method="post">
 			<div id="name">
@@ -13,7 +24,7 @@
 				<input type="password">
 			</div>
 			<div>
-				<input type="submit" value="login">
+				<input type="submit" value="login" v-on:click="submitLogin">
 			</div>
 		</form>
 	</div>
