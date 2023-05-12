@@ -33,8 +33,8 @@ function setButtons(e){
 <template>
 <nav v-on:click="setButtons">
 <div class="container_right">
-	<div data-id="login" v-bind:class="{buttons: buttons.login}">login</div>
-	<div data-id="registration" v-bind:class="{buttons: buttons.registration}">registration</div>
+	<router-link to="/login" data-id="login" v-bind:class="{buttons: buttons.login}">login</router-link>
+	<router-link to="/registration" data-id="registration" v-bind:class="{buttons: buttons.registration}">registration</router-link>
 </div>
 </nav>
 </template>
@@ -58,7 +58,11 @@ nav {
 	align-items: center;
 }
 
-.container_right>div:hover{
+a {
+	color: black;
+}
+
+.container_right>a:hover{
 	cursor: pointer;
 	color: v-bind(css_colors.hoverColor);
 }
@@ -67,7 +71,7 @@ nav {
 	color: v-bind(css_colors.activeColor);
 }
 
-.container_right>div[data-id="login"] {
+.container_right>a[data-id="login"] {
 	border-right: 1px solid LawnGreen;
 	margin-right: 10px;
 	padding-right: 10px;

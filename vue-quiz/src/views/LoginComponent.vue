@@ -19,6 +19,7 @@ async function login(e){
 </script>
 
 <template>
+	<Login ref="refLogin"></Login>
 	<div class="container">
 		<form method="post">
 			<div id="name">
@@ -30,7 +31,11 @@ async function login(e){
 				<input type="password" v-model="credentials.password">
 			</div>
 			<div>
+<<<<<<< HEAD:vue-quiz/src/components/login_component.vue
 				<input type="submit" value="login" v-on:click="login">
+=======
+				<input type="submit" value="login" v-on:click="submitLogin">
+>>>>>>> refs/remotes/origin/main:vue-quiz/src/views/LoginComponent.vue
 			</div>
 		</form>
 	</div>
