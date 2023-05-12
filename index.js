@@ -1,5 +1,19 @@
 const express = require('express');
 const app = express();
-const httpServer = require('http').createServer(app);
+const server = require('http').createServer(app);
+const router = require('./router.js');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
-httpServer.listen(8000);
+app.use(cors())
+app.use(bodyParser.json())
+app.use(session({
+	secret: "lksdjfaih39w93h239f32hf29f239",
+	resave: false,
+	saveUninitialized: false
+}))
+app.use('/', router)
+
+
+server.listen(8000);

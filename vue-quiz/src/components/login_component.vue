@@ -1,4 +1,21 @@
 <script setup>
+import {reactive} from 'vue'
+import axios from 'axios'
+const credentials = {
+	name: "",
+	password: ""
+}
+  
+async function login(e){
+  e.preventDefault()
+	const result = await axios({
+		method: 'post',
+		url: 'http://localhost:8000/login',
+        data: credentials
+	});
+
+  console.log(result)
+}
 </script>
 
 <template>
@@ -6,14 +23,14 @@
 		<form method="post">
 			<div id="name">
 				<label for="name">Name</label>
-				<input type="text">
+				<input type="text" v-model="credentials.name">
 			</div>
 			<div>
 				<label for="password">Password</label>
-				<input type="password">
+				<input type="password" v-model="credentials.password">
 			</div>
 			<div>
-				<input type="submit" value="login">
+				<input type="submit" value="login" v-on:click="login">
 			</div>
 		</form>
 	</div>
@@ -25,7 +42,6 @@
 	justify-content: center;
 	align-items: center;
 	height: 80vh; 
-	background-color: grey;
 }
 
 form {
@@ -36,6 +52,8 @@ form {
 	height: 50%;
 	width:60%;
 	font-size: 1.5rem;
+	background: DarkGoldenrod;
+	color: Khaki;
 }
 
 form>div {
@@ -61,7 +79,14 @@ form>div>input {
 }
 
 form>div>input[type="submit"] {
-	color: red; 
+	color: Khaki; 
+	font-size: 1.3rem;
+	font-weight: bold;
+	background: DarkGoldenRod;
+	margin: auto;
+	min-width: 10px;
+	max-width: 120px;
+	height: 1.8rem;
 }
 
 @media(max-width: 720px){
@@ -73,7 +98,7 @@ form>div>input[type="submit"] {
 @media(min-width: 1040px){
 	form{
 		width: 42%;
-		height: 60%;
+		height: 80%;
 	}
 }
 </style>
